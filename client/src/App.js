@@ -4,7 +4,7 @@ import axios from "axios";
 function App() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [sequence, setSequence] = useState("Fall/F01"); // ⬅️ ADD THIS
+  const [sequence, setSequence] = useState("Fall"); // Default to valid folder
 
   const handleAnalyze = async () => {
     setLoading(true);

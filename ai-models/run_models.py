@@ -12,12 +12,18 @@ def analyze_sequence():
     data = request.get_json()
     sequence_name = data.get('sequenceName')
 
+    # Debug print statements
+    print("Requested sequenceName:", sequence_name)
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    dataset_path = os.path.join(base_dir, 'ai-models', 'sample_sequences', 'Labelled_Dataset', sequence_name)
+    print("Looking for path:", dataset_path)
+
     if not sequence_name:
         return jsonify({'error': 'Missing sequenceName'}), 400
 
     # Absolute path handling - the dataset is in the ai-models subdirectory
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    dataset_path = os.path.join(base_dir, 'ai-models', 'sample_sequences', 'Labelled_Dataset', sequence_name)
+    # base_dir = os.path.dirname(os.path.abspath(__file__))
+    # dataset_path = os.path.join(base_dir, 'ai-models', 'sample_sequences', 'Labelled_Dataset', sequence_name)
 
     if not os.path.isdir(dataset_path):
         return jsonify({'error': f'Path not found: {dataset_path}'}), 404
