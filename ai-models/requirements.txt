@@ -1,4 +1,9 @@
 flask==3.0.0
 flask-cors==4.0.0
 opencv-python==4.9.0.80
-numpy==1.26.4 
+numpy==1.26.4
+librosa==0.10.1
+soundfile==0.12.1
+transformers==4.40.0
+torch==2.4.0
+pydub==0.25.1 
