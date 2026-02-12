@@ -1,6 +1,7 @@
 import os
 import cv2
 import random
+import numpy as np
 
 def detect_fall_from_images(sequence_folder):
     images = [f for f in sorted(os.listdir(sequence_folder)) if f.endswith(".png")]
@@ -24,3 +25,17 @@ def detect_fall_from_images(sequence_folder):
             "confidence": round(random.uniform(0.70, 0.85), 2),
             "frames_analyzed": frame_count
         }
+def detect_fall_frame(frame):
+    """
+    Perform fall detection on a single image frame.
+    Replace this dummy logic with your actual detection model later.
+    """
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    motion = np.mean(gray)  # Example feature
+    threshold = 100  # Example threshold for motion or posture shift
+
+    is_fall = motion < threshold
+    return {
+        "event": "fall_detected" if is_fall else "normal_activity",
+        "confidence": round(random.uniform(0.7, 0.95), 2)
+    }
