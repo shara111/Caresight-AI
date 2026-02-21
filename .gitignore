@@ -8,6 +8,7 @@ __pycache__/
 *.pyo
 *.pyd
 .venv/
+venv/
 env/
 
 # Dataset
@@ -18,3 +19,11 @@ ai-models/ai-models/sample_sequences/Labelled_Dataset/
 
 # OS files
 .DS_Store
+
+# Logs
+*.log
+events.log
+server.log
+
+# Duplicate nested directory
+ai-models/ai-models/
